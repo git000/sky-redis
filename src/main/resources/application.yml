@@ -1,3 +1,3 @@
 spring:
   profiles:
-    active: masterslave # single masterslave
+    active: sentinel # single masterslave sentinel

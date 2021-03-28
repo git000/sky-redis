@@ -1,18 +1,18 @@
 version: "3"
 services:
   master:
-    image: redis:4.0
+    image: redis:5.0
     container_name: redis-master-6300
     ports: 
       - 6300:6379
     command: redis-server /etc/redis/redis.conf #--appendonly yes
     volumes:
-      - /Users/ext.wangxintian1/db/redis/1master3slave3sentinal/redis-m.conf:/etc/redis/redis.conf 
+      - /Users/ext.wangxintian1/coding/dream/sky-redis/doc/1master3slave3sentinal/redis-m.conf:/etc/redis/redis.conf 
     networks: 
       extnetwork:
         ipv4_address: 172.100.0.11
   slave1:
-    image: redis:4.0
+    image: redis:5.0
     container_name: redis-slave-6301
     depends_on:
       - master
@@ -20,12 +20,12 @@ services:
       - 6301:6379
     command: redis-server /etc/redis/redis.conf #--appendonly yes
     volumes:
-      - /Users/ext.wangxintian1/db/redis/1master3slave3sentinal/redis-s.conf:/etc/redis/redis.conf 
+      - /Users/ext.wangxintian1/coding/dream/sky-redis/doc/1master3slave3sentinal/redis-s.conf:/etc/redis/redis.conf 
     networks: 
       extnetwork:
         ipv4_address: 172.100.0.12
   slave2:
-    image: redis:4.0
+    image: redis:5.0
     container_name: redis-slave-6302
     depends_on:
       - master
@@ -33,12 +33,12 @@ services:
       - 6302:6379
     command: redis-server /etc/redis/redis.conf #--appendonly yes
     volumes:
-      - /Users/ext.wangxintian1/db/redis/1master3slave3sentinal/redis-s.conf:/etc/redis/redis.conf 
+      - /Users/ext.wangxintian1/coding/dream/sky-redis/doc/1master3slave3sentinal/redis-s.conf:/etc/redis/redis.conf 
     networks: 
       extnetwork:
         ipv4_address: 172.100.0.13
   slave3:
-    image: redis:4.0
+    image: redis:5.0
     container_name: redis-slave-6303
     depends_on:
       - master
@@ -46,12 +46,12 @@ services:
       - 6303:6379
     command: redis-server /etc/redis/redis.conf #--appendonly yes
     volumes:
-      - /Users/ext.wangxintian1/db/redis/1master3slave3sentinal/redis-s.conf:/etc/redis/redis.conf 
+      - /Users/ext.wangxintian1/coding/dream/sky-redis/doc/1master3slave3sentinal/redis-s.conf:/etc/redis/redis.conf 
     networks: 
       extnetwork:
         ipv4_address: 172.100.0.14
   sentinel1:
-    image: redis:4.0
+    image: redis:5.0
     container_name: sentinel1
     depends_on:
       - slave3
@@ -59,12 +59,12 @@ services:
       - 26379:26379
     command: redis-sentinel /etc/redis/sentinel.conf
     volumes:
-      - /Users/ext.wangxintian1/db/redis/1master3slave3sentinal/sentinel.conf:/etc/redis/sentinel.conf 
+      - /Users/ext.wangxintian1/coding/dream/sky-redis/doc/1master3slave3sentinal/sentinel.conf:/etc/redis/sentinel.conf 
     networks: 
       extnetwork:
         ipv4_address: 172.100.0.15
   sentinel2:
-    image: redis:4.0
+    image: redis:5.0
     container_name: sentinel2
     depends_on:
       - slave3
@@ -72,12 +72,12 @@ services:
       - 26380:26379
     command: redis-sentinel /etc/redis/sentinel.conf
     volumes:
-      - /Users/ext.wangxintian1/db/redis/1master3slave3sentinal/sentinel.conf:/etc/redis/sentinel.conf 
+      - /Users/ext.wangxintian1/coding/dream/sky-redis/doc/1master3slave3sentinal/sentinel.conf:/etc/redis/sentinel.conf 
     networks: 
       extnetwork:
         ipv4_address: 172.100.0.16
   sentinel3:
-    image: redis:4.0
+    image: redis:5.0
     container_name: sentinel3
     depends_on:
       - slave3
@@ -85,7 +85,7 @@ services:
       - 26381:26379
     command: redis-sentinel /etc/redis/sentinel.conf
     volumes:
-      - /Users/ext.wangxintian1/db/redis/1master3slave3sentinal/sentinel.conf:/etc/redis/sentinel.conf 
+      - /Users/ext.wangxintian1/coding/dream/sky-redis/doc/1master3slave3sentinal/sentinel.conf:/etc/redis/sentinel.conf 
     networks: 
       extnetwork:
         ipv4_address: 172.100.0.17
