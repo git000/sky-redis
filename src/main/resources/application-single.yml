@@ -1,0 +1,11 @@
+spring:
+  redis:
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1ms
+        max-idle: 8
+    database: 0
+    url: 127.0.0.1
+    port: 6300
+    password: 123456

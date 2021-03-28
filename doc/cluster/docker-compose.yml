@@ -1,0 +1,77 @@
+version: "3"
+services:
+  redis-c1:
+    image: redis:5.0
+    container_name: redis-c1
+    ports: 
+      - 6300:6379
+    command: redis-server /etc/redis/redis.conf #--appendonly yes
+    volumes:
+      - /Users/ext.wangxintian1/db/redis/cluster/redis.conf:/etc/redis/redis.conf 
+    networks: 
+      extnetwork:
+        ipv4_address: 172.100.0.11
+  redis-c2:
+    image: redis:5.0
+    container_name: redis-c2
+    ports: 
+      - 6301:6379
+    command: redis-server /etc/redis/redis.conf #--appendonly yes
+    volumes:
+      - /Users/ext.wangxintian1/db/redis/cluster/redis.conf:/etc/redis/redis.conf 
+    networks: 
+      extnetwork:
+        ipv4_address: 172.100.0.12  
+  redis-c3:
+    image: redis:5.0
+    container_name: redis-c3
+    ports: 
+      - 6302:6379
+    command: redis-server /etc/redis/redis.conf #--appendonly yes
+    volumes:
+      - /Users/ext.wangxintian1/db/redis/cluster/redis.conf:/etc/redis/redis.conf 
+    networks: 
+      extnetwork:
+        ipv4_address: 172.100.0.13 
+  redis-c4:
+    image: redis:5.0
+    container_name: redis-c4
+    ports: 
+      - 6303:6379
+    command: redis-server /etc/redis/redis.conf #--appendonly yes
+    volumes:
+      - /Users/ext.wangxintian1/db/redis/cluster/redis.conf:/etc/redis/redis.conf 
+    networks: 
+      extnetwork:
+        ipv4_address: 172.100.0.14
+  redis-c5:
+    image: redis:5.0
+    container_name: redis-c5
+    ports: 
+      - 6304:6379
+    command: redis-server /etc/redis/redis.conf #--appendonly yes
+    volumes:
+      - /Users/ext.wangxintian1/db/redis/cluster/redis.conf:/etc/redis/redis.conf 
+    networks: 
+      extnetwork:
+        ipv4_address: 172.100.0.15
+  redis-c6:
+    image: redis:5.0
+    container_name: redis-c6
+    ports: 
+      - 6305:6379
+    command: redis-server /etc/redis/redis.conf #--appendonly yes
+    volumes:
+      - /Users/ext.wangxintian1/db/redis/cluster/redis.conf:/etc/redis/redis.conf 
+    networks: 
+      extnetwork:
+        ipv4_address: 172.100.0.16
+networks:
+  extnetwork:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.100.0.0/16
+          gateway: 172.100.0.1
+        
