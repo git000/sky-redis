@@ -6,12 +6,13 @@ import org.redisson.config.Config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.ClassPathResource;
 
 import java.io.IOException;
 
-@Configurable
+@Configuration
 public class RedissonConfig {
 
     @Autowired
@@ -25,7 +26,7 @@ public class RedissonConfig {
             profile = "-" + profiles[0];
         }
         return Redisson.create(
-                Config.fromYAML(new ClassPathResource("redisson-" + profile + ".yml").getInputStream())
+                Config.fromYAML(new ClassPathResource("redisson" + profile + ".yml").getInputStream())
         );
     }
 }
