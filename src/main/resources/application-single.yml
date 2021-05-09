@@ -1,7 +1,5 @@
 spring:
   redis:
-    redisson:
-      file: classpath:redisson-single.yml
     jedis:
       pool:
         max-active: 8

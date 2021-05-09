@@ -1,9 +1,4 @@
-## sky-redis / redis实战
-### 参考文章
-https://github.com/redisson/redisson
-
-### 第三方组件
-redisson:3.15.2
+## sky-redis / redis实战  
 
 ### 目录说明
 1. doc包括redis多种模式的配置文件
