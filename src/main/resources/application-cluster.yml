@@ -1,0 +1,11 @@
+spring:
+  redis:
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1ms
+        max-idle: 8
+    database: 0
+    cluster:
+      nodes: 172.100.0.11:6379,172.100.0.12:6379,172.100.0.13:6379,172.100.0.14:6379,172.100.0.15:6379,172.100.0.16:6379
+    password: 123456
